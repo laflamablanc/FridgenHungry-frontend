@@ -8,13 +8,18 @@ class Home extends React.Component {
     fridge: []
   }
 
+  ingredientClickHandler = (ingredientObj) => {
+    this.setState({
+      fridge: [...this.state.fridge, ingredientObj]
+    })
+  }
 
 
   render(){
     return(
       <div>
-        <IngredientsContainer/>
-        <Fridge/>
+        <IngredientsContainer ingredientClickHandler = {this.ingredientClickHandler}/>
+        <Fridge foodArray={this.state.fridge}/>
       </div>
     )
   }

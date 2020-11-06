@@ -8,20 +8,18 @@ class IngredientsContainer extends React.Component {
   }
 
   renderIngredients = () => {
-    console.log("hey")
-    this.state.ingredients.map(ingredient => {
+    return this.state.ingredients.map(ingredient => {
       return <Ingredient
-      key = {ingredient.id}
-      ingredient = {ingredient}
-      />
+        key = {ingredient.id}
+        ingredient = {ingredient}
+        ingedientClickHandler = {this.props.ingredientClickHandler}
+        />
     })
   }
 
   render(){
-    let arrayOfIngredients = this.renderIngredients()
-    console.log("State", this.state.ingredients)
     return(
-      <div>{arrayOfIngredients}</div>
+      <div>{this.renderIngredients()}</div>
     )
   }
 
