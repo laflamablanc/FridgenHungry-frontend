@@ -8,7 +8,8 @@ class Fridge extends React.Component {
       return <Ingredient
         key = {ingredient.id}
         ingredient = {ingredient}
-        ingedientClickHandler = {this.props.ingredientClickHandler}
+        removeIngredient = {this.props.removeIngredient}
+        fridge = "hey"
         />
     })
   }

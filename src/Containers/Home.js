@@ -14,12 +14,19 @@ class Home extends React.Component {
     })
   }
 
+  removeIngredient = (ingredientObj) => {
+    let newFridge = this.state.fridge.filter(ingredient => ingredient.id !== ingredientObj.id)
+    this.setState({
+      fridge: newFridge
+    })
+  }
+
 
   render(){
     return(
       <div>
         <IngredientsContainer ingredientClickHandler = {this.ingredientClickHandler}/>
-        <Fridge foodArray={this.state.fridge}/>
+        <Fridge foodArray={this.state.fridge} removeIngredient = {this.removeIngredient}/>
       </div>
     )
   }

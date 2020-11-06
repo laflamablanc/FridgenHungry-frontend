@@ -12,7 +12,7 @@ class IngredientsContainer extends React.Component {
       return <Ingredient
         key = {ingredient.id}
         ingredient = {ingredient}
-        ingedientClickHandler = {this.props.ingredientClickHandler}
+        ingredientClickHandler = {this.props.ingredientClickHandler}
         />
     })
   }
