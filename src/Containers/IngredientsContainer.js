@@ -31,8 +31,8 @@ class IngredientsContainer extends React.Component {
     } else if (category === "Grains"){
       let array = this.state.ingredients.filter(ingredient => ingredient.category === "Grains")
       this.setState({filtered: array})
-    } else if (category === "Fruits") {
-    let array = this.state.ingredients.filter(ingredient => ingredient.category === "Fruits")
+    } else if (category === "Fruit") {
+    let array = this.state.ingredients.filter(ingredient => ingredient.category === "Fruit")
     this.setState({filtered: array})
     } else if (category === "Spices") {
     let array = this.state.ingredients.filter(ingredient => ingredient.category === "Spices")

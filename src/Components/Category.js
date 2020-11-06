@@ -15,7 +15,7 @@ class Category extends Component {
           <option value="Dairy">Dairy</option>
           <option value="Protein">Protein</option>
           <option value="Vegetables">Vegetables</option>
-          <option value="Grain">Grain</option>
+          <option value="Grains">Grains</option>
           <option value="Fruit">Fruit</option>
           <option value="Spices">Spices</option>
         </select>
