@@ -10,9 +10,9 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <Route path="/home" render={() => <Home/>} />
-          <Route path="/" render={() => <Login/>} />
-        </Router>      
+          <Route exact path="/home" render={() => <Home/>} />
+          <Route exact path="/" render={() => <Login/>} />
+        </Router>
       </div>
     )
   }

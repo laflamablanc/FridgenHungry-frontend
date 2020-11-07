@@ -24,8 +24,8 @@ class Ingredient extends React.Component {
         <img
           src={this.props.ingredient.image}
           alt={this.props.ingredient.name}
-          height = '75'/>
-        <div>{this.props.ingredient.category}</div>
+          height = '75'
+          onClick={this.clickHandler}/>
         <button onClick={this.clickHandler}> {this.props.fridge !== undefined ? "Remove" : "Add"}</button>
       </div>
     )

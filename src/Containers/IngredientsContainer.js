@@ -45,24 +45,27 @@ class IngredientsContainer extends React.Component {
   renderIngredients = () => {
     let ingredientsArray = this.returnArray()
     return ingredientsArray.map(ingredient => {
-      return <Ingredient
-        key = {ingredient.id}
-        ingredient = {ingredient}
-        ingredientClickHandler = {this.props.ingredientClickHandler}
-
-        />
+      return (
+        <Grid item xs = {3}>
+          <Ingredient
+            key = {ingredient.id}
+            ingredient = {ingredient}
+            ingredientClickHandler = {this.props.ingredientClickHandler}
+            />
+        </Grid>
+      )
     })
   }
 
     render(){
       return(
         <div>
+          <Category filterFood = {this.filterFood}/>
           <div className = "ingredients-container">
-            <Grid container spacing={5}>
+            <Grid container spacing={1}>
               {this.renderIngredients()}
             </Grid>
           </div>
-          <Category filterFood = {this.filterFood}/>
         </div>
       )
     }
