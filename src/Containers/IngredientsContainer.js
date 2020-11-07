@@ -1,7 +1,7 @@
 import React from 'react'
 import Ingredient from '../Components/Ingredient'
 import Category from '../Components/Category'
-import Grid from './@material-ui/core/Grid'
+import Grid from '@material-ui/core/Grid'
 
 class IngredientsContainer extends React.Component {
 
@@ -56,11 +56,13 @@ class IngredientsContainer extends React.Component {
 
     render(){
       return(
-        <div className = "ingredients-container">
+        <div>
+          <div className = "ingredients-container">
+            <Grid container spacing={5}>
+              {this.renderIngredients()}
+            </Grid>
+          </div>
           <Category filterFood = {this.filterFood}/>
-          <Grid container spacing = {3}>
-            {this.renderIngredients()}
-          </Grid>
         </div>
       )
     }

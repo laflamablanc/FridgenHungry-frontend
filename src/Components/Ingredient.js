@@ -21,7 +21,10 @@ class Ingredient extends React.Component {
     return(
       <div>
         <h2>{this.props.ingredient.name}</h2>
-        <img src={this.props.ingredient.image} alt={this.props.ingredient.name}/>
+        <img
+          src={this.props.ingredient.image}
+          alt={this.props.ingredient.name}
+          height = '75'/>
         <div>{this.props.ingredient.category}</div>
         <button onClick={this.clickHandler}> {this.props.fridge !== undefined ? "Remove" : "Add"}</button>
       </div>
