@@ -1,6 +1,7 @@
 import React from 'react'
 import IngredientsContainer from '../Containers/IngredientsContainer'
-import Fridge from '../Components/Fridge'
+import Fridge from './Fridge'
+import Grid from '@material-ui/core/Grid'
 
 class Home extends React.Component {
 
@@ -25,8 +26,14 @@ class Home extends React.Component {
   render(){
     return(
       <div>
-        <IngredientsContainer ingredientClickHandler = {this.ingredientClickHandler}/>
-        <Fridge foodArray={this.state.fridge} removeIngredient = {this.removeIngredient}/>
+        <Grid item xs = {12} container spacing = {2}>
+          <Grid item xs = {6}>
+            <IngredientsContainer ingredientClickHandler = {this.ingredientClickHandler}/>
+          </Grid>
+          <Grid item xs = {6}>
+            <Fridge foodArray={this.state.fridge} removeIngredient = {this.removeIngredient}/>
+          </Grid>
+        </Grid>
       </div>
     )
   }

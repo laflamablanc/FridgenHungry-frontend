@@ -46,13 +46,13 @@ class IngredientsContainer extends React.Component {
     let ingredientsArray = this.returnArray()
     return ingredientsArray.map(ingredient => {
       return (
-        <Grid item xs = {3}>
-          <Ingredient
-            key = {ingredient.id}
-            ingredient = {ingredient}
-            ingredientClickHandler = {this.props.ingredientClickHandler}
-            />
-        </Grid>
+            <Grid item xs = {3}>
+              <Ingredient
+                key = {ingredient.id}
+                ingredient = {ingredient}
+                ingredientClickHandler = {this.props.ingredientClickHandler}
+                />
+            </Grid>
       )
     })
   }

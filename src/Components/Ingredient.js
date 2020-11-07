@@ -1,4 +1,5 @@
 import React from 'react'
+import {Card, CardActions, CardContent} from '@material-ui/core'
 
 class Ingredient extends React.Component {
 
@@ -20,14 +21,16 @@ class Ingredient extends React.Component {
   render(){
     return(
       <div>
+        <Card onClick={this.clickHandler}>
         <h2>{this.props.ingredient.name}</h2>
         <img
           src={this.props.ingredient.image}
           alt={this.props.ingredient.name}
           height = '75'
-          onClick={this.clickHandler}/>
-        <button onClick={this.clickHandler}> {this.props.fridge !== undefined ? "Remove" : "Add"}</button>
+          />
+        </Card>
       </div>
+      // <button onClick={this.clickHandler}> {this.props.fridge !== undefined ? "Remove" : "Add"}</button>
     )
   }
 
