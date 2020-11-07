@@ -1,6 +1,7 @@
 import React from 'react'
 import Ingredient from '../Components/Ingredient'
 import Category from '../Components/Category'
+import Grid from './@material-ui/core/Grid'
 
 class IngredientsContainer extends React.Component {
 
@@ -48,21 +49,20 @@ class IngredientsContainer extends React.Component {
         key = {ingredient.id}
         ingredient = {ingredient}
         ingredientClickHandler = {this.props.ingredientClickHandler}
-        
+
         />
     })
   }
 
-  render() {
-    
-    return(
-      <div>
-        <Category filterFood = {this.filterFood}/>
-        {this.renderIngredients()}
-        
-
+    render(){
+      return(
+        <div className = "ingredients-container">
+          <Category filterFood = {this.filterFood}/>
+          <Grid container spacing = {3}>
+            {this.renderIngredients()}
+          </Grid>
         </div>
-    )
+      )
     }
 
   componentDidMount() {
