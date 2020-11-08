@@ -2,6 +2,7 @@ import React from 'react'
 import IngredientsContainer from '../Containers/IngredientsContainer'
 import Fridge from './Fridge'
 import Grid from '@material-ui/core/Grid'
+import Nutrition from '../Components/Nutrition'
 
 class Home extends React.Component {
 
@@ -34,6 +35,7 @@ class Home extends React.Component {
             <Fridge foodArray={this.state.fridge} removeIngredient = {this.removeIngredient}/>
           </Grid>
         </Grid>
+        <Nutrition foodArray={this.state.fridge}/>
       </div>
     )
   }

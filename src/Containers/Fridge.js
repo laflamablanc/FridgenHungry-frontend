@@ -11,7 +11,7 @@ class Fridge extends React.Component {
           <Ingredient
             key = {ingredient.id}
             ingredient = {ingredient}
-            ingredientClickHandler = {this.props.ingredientClickHandler}
+            removeIngredient = {this.props.removeIngredient}
             fridge = "hey"
           />
         </Grid>
