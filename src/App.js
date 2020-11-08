@@ -6,16 +6,29 @@ import Login from './Components/Login'
 import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 
 class App extends React.Component {
+  state = {
+    isLoggedIn :false
+  }
+
+  loggedIn = () => {
+    this.setState({isLoggedIn :true})
+  }
+
   render(){
+    console.log(this.state)
     return (
       <div>
         <Router>
+          <Route exact path="/">
+            {this.state.isLoggedIn ? <Redirect to="/home" /> : <Login loggedIn = {this.loggedIn}/> }
+          </Route>
           <Route exact path="/home" render={() => <Home/>} />
-          <Route exact path="/" render={() => <Login/>} />
         </Router>
       </div>
     )
   }
 }
+
+
 
 export default App;
