@@ -7,14 +7,39 @@ import Nutrition from '../Components/Nutrition'
 class Home extends React.Component {
 
   state = {
-    fridge: []
+    fridge: [],
+    fridgeId: this.props.fridgeId
   }
 
   ingredientClickHandler = (ingredientObj) => {
-    this.setState({
-      fridge: [...this.state.fridge, ingredientObj]
-    })
-  }
+    console.log("Ingredient Id", ingredientObj.id, "Fridge Id", this.state.fridgeId)
+      let options = {
+        method: "POST" ,
+        headers:{
+          "content-type" : "application/json",
+          "accept" : "application/json"
+        },
+        body: JSON.stringify(
+          {
+            fridge_id: this.state.fridgeId,
+            ingredient_id: ingredientObj.id
+          }
+        )
+      }
+
+      fetch('http://localhost:4000/fridge_ingredients', options)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          fridge: [...this.state.fridge, ingredientObj]
+        })
+      })
+
+    }
+
+
+
+
 
   removeIngredient = (ingredientObj) => {
     let newFridge = this.state.fridge.filter(ingredient => ingredient.id !== ingredientObj.id)

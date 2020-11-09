@@ -59,7 +59,6 @@ class IngredientsContainer extends React.Component {
 
     render(){
       let arrayOfIngredients = this.renderIngredients()
-      console.log("State", this.state.ingredients)
       return(
         <div>
           <Category filterFood = {this.filterFood}/>
