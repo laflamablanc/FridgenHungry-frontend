@@ -1,5 +1,5 @@
-import "./NutritionLabel.css"
-
+import "./NutritionLabel.scss"
+const DEC_PT = 1
 export const NutritionLabel = (props) => {
     let totalNutrients = props.nutritionInfo.totalNutrients
     let totalDaily = props.nutritionInfo.totalDaily
@@ -15,36 +15,36 @@ export const NutritionLabel = (props) => {
         <table class="performance-facts__table">
           <thead>
             <tr>
-              <th colspan="3" class="amps">
+              <th colspan="4" class="amps">
                 Amount Per Serving
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th colspan="2" id="lkcal-val-cal">
-                <b>Calories</b>
+              <th colspan="1" id="lkcal-val-cal">
+                Calories
               </th>
-              <td class="nob"></td>
-            </tr>{props.nutritionInfo.calories}
+              <td class="nob">{props.nutritionInfo.calories}</td>
+            </tr>
             <tr class="thick-row">
-              <td colspan="3" class="small-info">
+              <td colspan="2" class="small-info">
                 <b>% Daily Value*</b>
               </td>
             </tr>
             <tr>
               <th colspan="2">
-                <b>Total Fat</b> {totalNutrients.FAT.quantity} g
+                <b>Total Fat</b> {round(totalNutrients.FAT.quantity,DEC_PT)} g
               </th>
               <td>
-                <b>{totalDaily.FAT.quantity} %</b>
+                <b>{round(totalDaily.FAT.quantity,DEC_PT)} %</b>
               </td>
             </tr>
             <tr>
               <td class="blank-cell"></td> 
-              <th>Saturated Fat {totalNutrients.FASAT.quantity} g</th>{" "}
+              <th>Saturated Fat {round(totalNutrients.FASAT.quantity,DEC_PT)} g</th>{" "}
               <td>
-                <b>{totalDaily.FASAT.quantity} %</b>
+                <b>{round(totalDaily.FASAT.quantity,DEC_PT)} %</b>
               </td>{" "}
             </tr>{" "}
             <tr>
@@ -54,40 +54,40 @@ export const NutritionLabel = (props) => {
             <tr>
               {" "}
               <th colspan="2">
-                <b>Cholesterol</b> 0 mg
+                <b>Cholesterol</b> {round(totalNutrients.CHOLE.quantity,DEC_PT)} mg
               </th>{" "}
               <td>
-                <b>0 %</b>
+                <b>{round(totalDaily.CHOLE.quantity,DEC_PT)} %</b>
               </td>{" "}
             </tr>{" "}
             <tr>
               {" "}
               <th colspan="2">
-                <b>Sodium</b> 70 mg
+                <b>Sodium</b> {round(totalNutrients.NA.quantity,DEC_PT)} mg
               </th>{" "}
               <td>
-                <b>3 %</b>
+                <b>{round(totalDaily.NA.quantity,DEC_PT)} %</b>
               </td>{" "}
             </tr>{" "}
             <tr>
               {" "}
               <th colspan="2">
-                <b>Total Carbohydrate</b> 333.2 g
+                <b>Total Carbohydrate</b> {round(totalNutrients.CHOCDF.quantity,DEC_PT)} g
               </th>{" "}
               <td>
-                <b>111 %</b>
+                <b>{round(totalDaily.CHOCDF.quantity,DEC_PT)} %</b>
               </td>{" "}
             </tr>{" "}
             <tr>
               {" "}
-              <td class="blank-cell"></td> <th>Dietary Fiber 34.6 g</th>{" "}
+              <td class="blank-cell"></td> <th>Dietary Fiber {round(totalNutrients.FIBTG.quantity,DEC_PT)} g</th>{" "}
               <td>
-                <b>138 %</b>
+                <b>{round(totalDaily.FIBTG.quantity,DEC_PT)} %</b>
               </td>{" "}
             </tr>{" "}
             <tr>
               {" "}
-              <td class="blank-cell"></td> <th>Total Sugars 30.3 g</th>{" "}
+              <td class="blank-cell"></td> <th>Total Sugars {round(totalNutrients.SUGAR.quantity,DEC_PT)} g</th>{" "}
               <td></td>{" "}
             </tr>{" "}
             <tr>
@@ -98,10 +98,10 @@ export const NutritionLabel = (props) => {
             <tr class="thick-end">
               {" "}
               <th colspan="2">
-                <b>Protein</b> 70.9 g
+                <b>Protein</b> {round(totalNutrients.PROCNT.quantity,DEC_PT)} g
               </th>{" "}
               <td>
-                <b>142 %</b>
+                <b>{round(totalDaily.PROCNT.quantity,DEC_PT)} %</b>
               </td>{" "}
             </tr>{" "}
           </tbody>{" "}
@@ -112,30 +112,30 @@ export const NutritionLabel = (props) => {
             {" "}
             <tr>
               {" "}
-              <th>Vitamin D 0 µg</th>{" "}
+              <th>Vitamin D {round(totalNutrients.VITD.quantity,DEC_PT)} µg</th>{" "}
               <td>
-                <b>0 %</b>
+                <b>{round(totalDaily.VITD.quantity,DEC_PT)} %</b>
               </td>{" "}
             </tr>{" "}
             <tr>
               {" "}
-              <th>Calcium 179.1 mg</th>{" "}
+              <th>Calcium {round(totalNutrients.CA.quantity,DEC_PT)} mg</th>{" "}
               <td>
-                <b>18 %</b>
+                <b>{round(totalDaily.CA.quantity,DEC_PT)} %</b>
               </td>{" "}
             </tr>{" "}
             <tr>
               {" "}
-              <th>Iron 13.8 mg</th>{" "}
+              <th>Iron {round(totalNutrients.FE.quantity,DEC_PT)} mg</th>{" "}
               <td>
-                <b>77 %</b>
+                <b>{round(totalDaily.FE.quantity,DEC_PT)} %</b>
               </td>{" "}
             </tr>{" "}
-            <tr class="thin-end">
+            <tr>
               {" "}
-              <th>Potassium 2203.2 mg</th>{" "}
+              <th>Potassium {round(totalNutrients.K.quantity,DEC_PT)} mg</th>{" "}
               <td>
-                <b>47 %</b>
+                <b>{round(totalDaily.K.quantity,DEC_PT)} %</b>
               </td>{" "}
             </tr>{" "}
           </tbody>{" "}
@@ -147,3 +147,8 @@ export const NutritionLabel = (props) => {
     </div>
   );
 };
+
+function round(value, precision) {
+    var multiplier = Math.pow(10, precision || 0);
+    return Math.round(value * multiplier) / multiplier;
+}
