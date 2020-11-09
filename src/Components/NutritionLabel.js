@@ -9,7 +9,7 @@ export const NutritionLabel = (props) => {
         <div class="performance-facts__header">
           <h1 class="performance-facts__title">Nutrition Facts</h1>
           <p>
-            <span id="lnumser">0</span> servings per container
+            <span id="lnumser">1</span> servings per container
           </p>
         </div>
         <table class="performance-facts__table">

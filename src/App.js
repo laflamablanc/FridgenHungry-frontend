@@ -12,6 +12,7 @@ class App extends React.Component {
 
   loggedIn = () => {
     this.setState({isLoggedIn :true})
+    
   }
 
   render(){

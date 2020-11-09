@@ -18,10 +18,14 @@ class Ingredient extends React.Component {
     this.props.removeIngredient(this.props.ingredient)
   }
 
+  showNutrition = () => {
+    console.log('showNutrition')
+  }
+
   render(){
     return(
       <div>
-        <Card onClick={this.clickHandler}>
+        <Card onClick={this.clickHandler} >
         <h2>{this.props.ingredient.name}</h2>
         <img
           src={this.props.ingredient.image}
