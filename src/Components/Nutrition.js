@@ -1,5 +1,5 @@
 import React from 'react'
-import Select from 'react-select';
+import {NutritionLabel} from './NutritionLabel'
 const NUTRITION_API_URL=  'https://api.edamam.com/api/nutrition-details'
 
 class Nutrition extends React.Component {
@@ -58,8 +58,11 @@ render(){
 
 
                         </ul>
+                        <NutritionLabel nutritionInfo={this.state.nutritionInfo} />
                     </div>
+                    
                 }
+                
             </div>
         </div>
     )
