@@ -2,8 +2,10 @@ import React from 'react'
 import Ingredient from '../Components/Ingredient'
 import Category from '../Components/Category'
 import Grid from '@material-ui/core/Grid'
+import Recipe from '../Components/Recipe'
 
 class RecipesContainer extends React.Component {
+
 
   state = {
 
@@ -59,11 +61,10 @@ class RecipesContainer extends React.Component {
   }
 
     render(){
-      let arrayOfRecipes = this.renderIngredients()
       console.log("State", this.state.recipes)
       return(
         <div>
-          // <Category filterRecipes = {this.filterRecipes}/>
+          <h1> Recipes Container </h1>
           <div className = "recipes-container">
             <Grid container spacing={1}>
               {this.renderRecipes()}

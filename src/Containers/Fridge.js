@@ -1,6 +1,7 @@
 import React from 'react'
 import Ingredient from '../Components/Ingredient'
 import Grid from '@material-ui/core/Grid'
+import { Link } from 'react-router-dom';
 
 class Fridge extends React.Component {
 
@@ -26,6 +27,7 @@ class Fridge extends React.Component {
         <Grid container spacing={1}>
           {this.displayFood()}
         </Grid>
+        <Link to={'/recipes'}> See Recipes </Link>
       </div>
 
     )

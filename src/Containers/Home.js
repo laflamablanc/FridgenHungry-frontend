@@ -34,12 +34,7 @@ class Home extends React.Component {
           fridge: [...this.state.fridge, ingredientObj]
         })
       })
-
     }
-
-
-
-
 
   removeIngredient = (ingredientObj) => {
     let newFridge = this.state.fridge.filter(ingredient => ingredient.id !== ingredientObj.id)
@@ -47,7 +42,6 @@ class Home extends React.Component {
       fridge: newFridge
     })
   }
-
 
   render(){
     return(
