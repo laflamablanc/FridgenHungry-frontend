@@ -1,18 +1,17 @@
 import React from 'react'
 import IngredientsContainer from '../Containers/IngredientsContainer'
-import Fridge from './Fridge'
+import Cart from './Cart'
 import Grid from '@material-ui/core/Grid'
 import Nutrition from '../Components/Nutrition'
 
-class ShoppingCart extends React.Component {
+class GroceryStore extends React.Component {
 
   state = {
-    fridge: [],
+    fridgeIngredients: [],
     fridgeId: this.props.fridgeId
   }
 
   ingredientClickHandler = (ingredientObj) => {
-    console.log("Ingredient Id", ingredientObj.id, "Fridge Id", this.state.fridgeId)
       let options = {
         method: "POST" ,
         headers:{
@@ -31,7 +30,7 @@ class ShoppingCart extends React.Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          fridge: [...this.state.fridge, ingredientObj]
+          fridgeIngredients: [...this.state.fridgeIngredients, ingredientObj]
         })
       })
     }
@@ -51,13 +50,13 @@ class ShoppingCart extends React.Component {
             <IngredientsContainer ingredientClickHandler = {this.ingredientClickHandler}/>
           </Grid>
           <Grid item xs = {6}>
-            <Fridge foodArray={this.state.fridge} removeIngredient = {this.removeIngredient}/>
+            <Cart foodArray={this.state.fridgeIngredients} removeIngredient = {this.removeIngredient}/>
           </Grid>
         </Grid>
-        <Nutrition foodArray={this.state.fridge}/>
+        <Nutrition foodArray={this.state.fridgeIngredients}/>
       </div>
     )
   }
 }
 
-export default ShoppingCart
+export default GroceryStore

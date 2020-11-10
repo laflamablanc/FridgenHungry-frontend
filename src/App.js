@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react'
-import ShoppingCart from './Containers/ShoppingCart'
+import GroceryStore from './Containers/GroceryStore'
 import Login from './Components/Login'
 import RecipesContainer from './Containers/RecipesContainer'
 import Fridge from './Containers/Fridge'
@@ -49,7 +49,7 @@ class App extends React.Component {
           <Route exact path="/">
             {this.state.isLoggedIn ? <Redirect to='/cart'/> : <Login loggedIn = {this.loggedIn}/> }
           </Route>
-          <Route exact path="/cart" render={() => <ShoppingCart fridgeId = {this.state.fridge.id}/>} />
+          <Route exact path="/cart" render={() => <GroceryStore fridgeId = {this.state.fridge.id}/>} />
           <Route exact path="/recipes" render={() => <RecipesContainer fridge = {this.state.fridge}/>}/>
           <Route exact path="/fridge" render={() => <Fridge fridge = {this.state.fridge}/>}/>
         </Router>

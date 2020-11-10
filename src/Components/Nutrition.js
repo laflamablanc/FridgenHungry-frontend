@@ -21,7 +21,6 @@ class Nutrition extends React.Component {
         .then(data => this.setState({nutritionInfo: data}))
     }
 render(){
-    console.log(this.state.nutritionInfo)
     let nutr = this.state.nutritionInfo
     return (
         <div>
@@ -60,9 +59,9 @@ render(){
                         </ul>
                         <NutritionLabel nutritionInfo={this.state.nutritionInfo} />
                     </div>
-                    
+
                 }
-                
+
             </div>
         </div>
     )
@@ -71,4 +70,4 @@ render(){
 
 }
 
-export default Nutrition 
+export default Nutrition

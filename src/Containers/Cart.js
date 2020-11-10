@@ -13,7 +13,7 @@ class Cart extends React.Component {
             key = {ingredient.id}
             ingredient = {ingredient}
             removeIngredient = {this.props.removeIngredient}
-            fridge = "hey"
+            fridge = ""
           />
         </Grid>
       )

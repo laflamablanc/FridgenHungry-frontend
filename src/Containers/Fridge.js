@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 class Fridge extends React.Component {
 
   displayFood = () => {
-    return this.props.foodArray.map(ingredient => {
+    return this.props.fridge.ingredients.map(ingredient => {
       return (
         <Grid item xs = {3}>
           <Ingredient
             key = {ingredient.id}
             ingredient = {ingredient}
             removeIngredient = {this.props.removeIngredient}
-            fridge = "hey"
+            fridge = ""
           />
         </Grid>
       )
@@ -21,6 +21,7 @@ class Fridge extends React.Component {
   }
 
   render(){
+    console.log("My Fridge", this.props.fridge)
     return(
       <div className = "fridge">
         <h1>Fridge</h1>
