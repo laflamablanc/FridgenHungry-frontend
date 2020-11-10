@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react'
-import Home from './Containers/Home'
+import ShoppingCart from './Containers/ShoppingCart'
 import Login from './Components/Login'
 import RecipesContainer from './Containers/RecipesContainer'
 import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
@@ -46,7 +46,7 @@ class App extends React.Component {
           <Route exact path="/">
             {this.state.isLoggedIn ? <Redirect to='/home'/> : <Login loggedIn = {this.loggedIn}/> }
           </Route>
-          <Route exact path="/home" render={() => <Home fridgeId = {this.state.fridgeId}/>} />
+          <Route exact path="/home" render={() => <ShoppingCart fridgeId = {this.state.fridgeId}/>} />
           <Route exact path="/recipes" render={() => <RecipesContainer/>}/>
         </Router>
       </div>
