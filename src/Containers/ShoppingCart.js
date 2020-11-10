@@ -4,7 +4,7 @@ import Fridge from './Fridge'
 import Grid from '@material-ui/core/Grid'
 import Nutrition from '../Components/Nutrition'
 
-class Home extends React.Component {
+class ShoppingCart extends React.Component {
 
   state = {
     fridge: [],
@@ -60,4 +60,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+export default ShoppingCart
