@@ -1,14 +1,12 @@
 import React from 'react'
-import Ingredient from '../Components/Ingredient'
 import Category from '../Components/Category'
 import Grid from '@material-ui/core/Grid'
-import Recipe from '../Components/Recipe'
+import RecipeCard from '../Components/RecipeCard'
 
 class RecipesContainer extends React.Component {
 
 
   state = {
-
     recipes: [],
     filtered: null
   }
@@ -45,12 +43,13 @@ class RecipesContainer extends React.Component {
     //   this.setState({filtered: null})
     // }
   }
+
   renderRecipes = () => {
     let recipesArray = this.returnArray()
     return recipesArray.map(recipe => {
       return (
         <Grid item xs = {3}>
-          <Recipe
+          <RecipeCard
             key = {recipe.id}
             recipe = {recipe}
             recipeClickHandler = {this.props.recipeClickHandler}
@@ -61,7 +60,7 @@ class RecipesContainer extends React.Component {
   }
 
     render(){
-      console.log("State", this.state.recipes)
+      console.log("Recipe Container State", this.state.recipes)
       return(
         <div>
           <h1> Recipes Container </h1>
@@ -75,11 +74,13 @@ class RecipesContainer extends React.Component {
     }
 
   componentDidMount() {
-    fetch('http://localhost:4000/recipes/')
+    let fridgeId = this.props.fridge.id
+    let url = 'http://localhost:4000/fridges/' + fridgeId
+    fetch(url)
     .then(r=>r.json())
-    .then((recipesArray) => {
+    .then(data => {
       this.setState({
-        recipes: recipesArray
+        recipes: data.recipes
       })
     })
   }

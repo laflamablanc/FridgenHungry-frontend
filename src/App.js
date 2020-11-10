@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-do
 class App extends React.Component {
   state = {
     isLoggedIn :false,
-    fridgeId: null
+    fridge: {}
   }
 
   loggedIn = (username, password) => {
@@ -32,17 +32,16 @@ class App extends React.Component {
 
     fetch('http://localhost:4000/fridges', fridgeOptions)
     .then(response => response.json())
-    .then(data => {
+    .then(fridgeObj => {
       this.setState({
         isLoggedIn :true,
-        fridgeId: data.id
+        fridge: fridgeObj
         })
     })
   }
 
 
   render(){
-    console.log(this.state)
     return (
       <div>
         <Router>
@@ -50,9 +49,9 @@ class App extends React.Component {
           <Route exact path="/">
             {this.state.isLoggedIn ? <Redirect to='/cart'/> : <Login loggedIn = {this.loggedIn}/> }
           </Route>
-          <Route exact path="/cart" render={() => <ShoppingCart fridgeId = {this.state.fridgeId}/>} />
-          <Route exact path="/recipes" render={() => <RecipesContainer/>}/>
-          <Route exact path="/fridge" render={() => <Fridge/>}/>
+          <Route exact path="/cart" render={() => <ShoppingCart fridgeId = {this.state.fridge.id}/>} />
+          <Route exact path="/recipes" render={() => <RecipesContainer fridge = {this.state.fridge}/>}/>
+          <Route exact path="/fridge" render={() => <Fridge fridge = {this.state.fridge}/>}/>
         </Router>
       </div>
     )
