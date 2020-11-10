@@ -46,17 +46,21 @@ class RecipesContainer extends React.Component {
 
   renderRecipes = () => {
     let recipesArray = this.returnArray()
-    return recipesArray.map(recipe => {
-      return (
-        <Grid item xs = {3}>
-          <RecipeCard
-            key = {recipe.id}
-            recipe = {recipe}
-            recipeClickHandler = {this.props.recipeClickHandler}
-            />
-        </Grid>
-      )
-    })
+    if (recipesArray){
+      return recipesArray.map(recipe => {
+        return (
+          <Grid item xs = {3}>
+            <RecipeCard
+              key = {recipe.id}
+              recipe = {recipe}
+              recipeClickHandler = {this.props.recipeClickHandler}
+              />
+          </Grid>
+        )
+      })
+    } else {
+      return <h3> We're sorry! No recipes match your selected Ingredients. Please try again!</h3>
+    }
   }
 
     render(){

@@ -5,6 +5,11 @@ import { Link } from 'react-router-dom';
 
 class Fridge extends React.Component {
 
+  getFridgeIngredients = () => {
+    fetch('http://localhost:4000/fridge_ingredients')
+    .then(response => response.json())
+    .then(data => console.log(data))
+  }
   displayFood = () => {
     return this.props.fridge.ingredients.map(ingredient => {
       return (
@@ -21,6 +26,7 @@ class Fridge extends React.Component {
   }
 
   render(){
+    this.getFridgeIngredients()
     console.log("My Fridge", this.props.fridge)
     return(
       <div className = "fridge">

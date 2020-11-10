@@ -7,7 +7,7 @@ import Nutrition from '../Components/Nutrition'
 class GroceryStore extends React.Component {
 
   state = {
-    fridgeIngredients: [],
+    fridgeIngredients: this.props.fridge.ingredients,
     fridgeId: this.props.fridgeId
   }
 
@@ -32,6 +32,7 @@ class GroceryStore extends React.Component {
         this.setState({
           fridgeIngredients: [...this.state.fridgeIngredients, ingredientObj]
         })
+        this.props.addFridgeIngredient(ingredientObj)
       })
     }
 

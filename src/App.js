@@ -15,6 +15,14 @@ class App extends React.Component {
     fridge: {}
   }
 
+  addFridgeIngredient = (ing) => {
+    this.setState({
+      fridge: {
+        ingredients: [...this.state.fridge.ingredients, ing]
+      }
+    })
+  }
+
   loggedIn = (username, password) => {
     let fridgeOptions = {
       method: "POST" ,
@@ -30,9 +38,10 @@ class App extends React.Component {
       )
     }
 
-    fetch('http://localhost:4000/fridges', fridgeOptions)
+    fetch('http://localhost:4000/login', fridgeOptions)
     .then(response => response.json())
     .then(fridgeObj => {
+      console.log(fridgeObj)
       this.setState({
         isLoggedIn :true,
         fridge: fridgeObj
@@ -49,7 +58,7 @@ class App extends React.Component {
           <Route exact path="/">
             {this.state.isLoggedIn ? <Redirect to='/cart'/> : <Login loggedIn = {this.loggedIn}/> }
           </Route>
-          <Route exact path="/cart" render={() => <GroceryStore fridgeId = {this.state.fridge.id}/>} />
+          <Route exact path="/cart" render={() => <GroceryStore fridgeId = {this.state.fridge.id} fridge={this.state.fridge} addFridgeIngredient={this.addFridgeIngredient}/>} />
           <Route exact path="/recipes" render={() => <RecipesContainer fridge = {this.state.fridge}/>}/>
           <Route exact path="/fridge" render={() => <Fridge fridge = {this.state.fridge}/>}/>
         </Router>
