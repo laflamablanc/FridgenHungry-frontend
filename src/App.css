@@ -29,13 +29,19 @@
 }
 
 .ingredients-container{
+  background-image: url("https://media.istockphoto.com/photos/empty-wooden-shelf-picture-id479473084?k=6&m=479473084&s=170667a&w=0&h=fQO4GC5I32tTFI1xGMmc4I1Ea_42X2a4YlK4tAum2TM=");
+  background-size: 100% auto;
+  background-repeat: repeat;
   border: 5px solid red;
   margin-top: 15px;
+  width: 700px;
+  padding: 50px;
+
 }
 
 .cart{
   margin-top: 15px;
-  background-image: url("Fridge.svg")
+  min-height: 1000px;
 }
 
 @keyframes App-logo-spin {
@@ -88,4 +94,4 @@
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
-} 
+}
