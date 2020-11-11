@@ -5,6 +5,8 @@ import Login from './Components/Login'
 import RecipesContainer from './Containers/RecipesContainer'
 import Fridge from './Containers/Fridge'
 import NavBar from './Components/NavBar'
+import Recipe from './Components/Recipe'
+
 
 import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 
