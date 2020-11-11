@@ -12,29 +12,59 @@ class GroceryStore extends React.Component {
     join: []
   }
 
-  ingredientClickHandler = (ingredientObj) => {
-      let options = {
-        method: "POST" ,
-        headers:{
-          "content-type" : "application/json",
-          "accept" : "application/json"
-        },
-        body: JSON.stringify(
-          {
-            fridge_id: this.props.fridgeId,
-            ingredient_id: ingredientObj.id
-          }
-        )
-      }
+  dragHandler = (item) => {
+    console.log("item", item, "id", item.id,"fridgeID", this.props.fridgeId)
+    this.setState({
+      fridgeIngredients: [...this.state.fridgeIngredients, item.ingredient],
+    })
 
-      fetch('http://localhost:4000/fridge_ingredients', options)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          fridgeIngredients: [...this.state.fridgeIngredients, ingredientObj],
-          join: [...this.state.join, data]
-        })
+    let options = {
+      method: "POST" ,
+      headers:{
+        "content-type" : "application/json",
+        "accept" : "application/json"
+      },
+      body: JSON.stringify(
+        {
+          fridge_id: this.props.fridgeId,
+          ingredient_id: item.id
+        }
+      )
+    }
+    fetch('http://localhost:4000/fridge_ingredients', options)
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        join: [...this.state.join, data]
       })
+    })
+
+  }
+
+  ingredientClickHandler = (ingredientObj) => {
+    console.log("Show Nutritional Info")
+      // let options = {
+      //   method: "POST" ,
+      //   headers:{
+      //     "content-type" : "application/json",
+      //     "accept" : "application/json"
+      //   },
+      //   body: JSON.stringify(
+      //     {
+      //       fridge_id: this.props.fridgeId,
+      //       ingredient_id: ingredientObj.id
+      //     }
+      //   )
+      // }
+      //
+      // fetch('http://localhost:4000/fridge_ingredients', options)
+      // .then(response => response.json())
+      // .then(data => {
+      //   this.setState({
+      //     fridgeIngredients: [...this.state.fridgeIngredients, ingredientObj],
+      //     join: [...this.state.join, data]
+      //   })
+      // })
       // this.props.addFridgeIngredient(ingredientObj) this was breaking our code
     }
 
@@ -70,7 +100,7 @@ class GroceryStore extends React.Component {
             <IngredientsContainer ingredientClickHandler = {this.ingredientClickHandler} />
           </Grid>
           <Grid item xs = {6}>
-            <Cart foodArray={this.state.fridgeIngredients} removeIngredient = {this.removeIngredient}/>
+            <Cart foodArray={this.state.fridgeIngredients} dragHandler = {this.dragHandler} removeIngredient = {this.removeIngredient}/>
           </Grid>
         </Grid>
         <Nutrition foodArray={this.state.fridgeIngredients}/>

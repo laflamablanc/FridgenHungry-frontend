@@ -9,7 +9,8 @@ const Ingredient = (props) => {
     const [{isDragging}, drag] = useDrag({
       item: {
         type: ItemTypes.CARD,
-        id: props.ingredient.id
+        id: props.ingredient.id,
+        ingredient: props.ingredient
       },
       collect: monitor => ({
         isDragging: !!monitor.isDragging()

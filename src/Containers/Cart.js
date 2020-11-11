@@ -9,6 +9,7 @@ const Cart = (props) => {
 
   const[{isOver}, drop] = useDrop({
     accept: ItemTypes.CARD,
+    drop: (item, monitor) => props.dragHandler(item),
     collect: monitor => ({
       isOver: !!monitor.isOver()
     })
@@ -37,7 +38,7 @@ const Cart = (props) => {
           backgroundPosition: 'center',
           backgroundSize: "100% 100%",
           backgroundRepeat: 'no-repeat',
-          border: isOver? "5px solid red" : "5px solid blue" 
+          border: isOver? "5px solid red" : "5px solid blue"
         }}
         ref={drop}
         >
@@ -51,9 +52,7 @@ const Cart = (props) => {
           </button>
         </Link>
       </div>
-
     )
-
 }
 
 export default Cart
