@@ -6,10 +6,14 @@ import { useDrag } from 'react-dnd'
 
 const Ingredient = (props) => {
 
-    const [collectedProps, drag] = useDrag({
+    const [{isDragging}, drag] = useDrag({
       item: {
-        type: ItemTypes.CARD
-      }
+        type: ItemTypes.CARD,
+        id: props.ingredient.id
+      },
+      collect: monitor => ({
+        isDragging: !!monitor.isDragging()
+      })
     })
 
 
@@ -36,8 +40,13 @@ const Ingredient = (props) => {
   }
 
     return(
-      <div>
-        <Card className = "ingredient-card" draggable onClick={clickHandler} onDrag = {dragHandler}>
+      <div
+        ref = {drag}
+        >
+        <Card
+          className = "ingredient-card"
+          onClick={clickHandler}
+          >
         <h2>{props.ingredient.name}</h2>
         <img
           src={props.ingredient.image}

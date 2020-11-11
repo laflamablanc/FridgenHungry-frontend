@@ -3,16 +3,18 @@ import Ingredient from '../Components/Ingredient'
 import Grid from '@material-ui/core/Grid'
 import { Link } from 'react-router-dom';
 
-class Cart extends React.Component {
+const Cart = (props) => {
 
-  displayFood = () => {
-    return this.props.foodArray.map(ingredient => {
+
+
+  const displayFood = () => {
+    return props.foodArray.map(ingredient => {
       return (
         <Grid item xs = {3}>
           <Ingredient
             key = {ingredient.id}
             ingredient = {ingredient}
-            removeIngredient = {this.props.removeIngredient}
+            removeIngredient = {props.removeIngredient}
             fridge = ""
           />
         </Grid>
@@ -20,7 +22,7 @@ class Cart extends React.Component {
     })
   }
 
-  render(){
+
     return(
       <div className = "cart" style={{
           backgroundImage: "url(" + "https://i.imgur.com/0IStklx.png" + ")",
@@ -30,7 +32,7 @@ class Cart extends React.Component {
         }}>
         <h1>Cart</h1>
         <Grid container spacing={1}>
-          {this.displayFood()}
+          {displayFood()}
         </Grid>
         <Link to={'/recipes'}>
           <button type="button">
@@ -40,10 +42,7 @@ class Cart extends React.Component {
       </div>
 
     )
-  }
-
 
 }
-
 
 export default Cart
