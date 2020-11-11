@@ -59,15 +59,16 @@ class RecipesContainer extends React.Component {
         )
       })
     } else {
-      return <h3> We're sorry! No recipes match your selected Ingredients. Please try again!</h3>
+      return <h3 className="page-header-text recipe-page-text-no-recipes"> We're sorry! No recipes match your selected Ingredients. Please try again!</h3>
     }
   }
 
     render(){
       console.log("Recipe Container State", this.state.recipes)
       return(
-        <div>
-          <h1> Recipes Container </h1>
+        <div className='recipe-page'>
+          <h1 className="page-header-text recipe-page-text-lg"> A delicious meal awaits you... </h1>
+          <h3 className='page-header-text'> Please click to show recipe instructions!</h3>
           <div className = "recipes-container">
             <Grid container spacing={1}>
               {this.renderRecipes()}

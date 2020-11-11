@@ -31,14 +31,14 @@ render() {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
+          <Modal.Title id="contained-modal-title-vcenter center">
             {this.state.recipe.name? this.state.recipe.name : "Recipe Not Found"}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="recipe-modal-font">
           <h4>Ingredients</h4>
           <ul>
-            {this.state.ingredients.map(ing => <li>{ing.name}</li>)}
+            {this.state.ingredients.map(ing => <li>{ingredientCard(ing)}</li>)}
           </ul>
           <h4>Instructions</h4>
           <ol>
@@ -55,5 +55,13 @@ render() {
   }
 }
 
+const ingredientCard = (props) => {
+  return (
+    <div>
+      <img src={props.image} style={{height: "20px", width: "20px"}}/>
+      <p>{props.name}</p>
+    </div>
+  )
+}
 
 export default Recipe;

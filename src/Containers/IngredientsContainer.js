@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid'
 class IngredientsContainer extends React.Component {
 
   state = {
-
+    showNutrition: false,
     ingredients: [],
     filtered: null
   }

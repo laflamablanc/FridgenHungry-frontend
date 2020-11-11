@@ -4,12 +4,12 @@ export const NutritionLabel = (props) => {
     let totalNutrients = props.nutritionInfo.totalNutrients
     let totalDaily = props.nutritionInfo.totalDaily
   return (
-    <div class="col-12">
+    <div class="col-12" style={{margin:"auto",display:"block", width: "350px"}}>
       <section class="performance-facts" id="performance-facts">
         <div class="performance-facts__header">
           <h1 class="performance-facts__title">Nutrition Facts</h1>
           <p>
-            <span id="lnumser">0</span> servings per container
+            <span id="lnumser">1</span> servings per container
           </p>
         </div>
         <table class="performance-facts__table">
