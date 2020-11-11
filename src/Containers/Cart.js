@@ -22,12 +22,21 @@ class Cart extends React.Component {
 
   render(){
     return(
-      <div className = "fridge">
+      <div className = "cart" style={{
+          backgroundImage: "url(" + "https://i.imgur.com/0IStklx.png" + ")",
+          backgroundPosition: 'center',
+          backgroundSize: "100% 100%",
+          backgroundRepeat: 'no-repeat'
+        }}>
         <h1>Cart</h1>
         <Grid container spacing={1}>
           {this.displayFood()}
         </Grid>
-        <Link to={'/recipes'}> See Recipes </Link>
+        <Link to={'/recipes'}>
+          <button type="button">
+            <span>Login</span>
+          </button>
+        </Link>
       </div>
 
     )

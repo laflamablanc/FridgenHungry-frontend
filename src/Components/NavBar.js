@@ -13,10 +13,22 @@ const link = {
 const NavBar = () => {
   return (
     <div className = "navbar">
-      <NavLink to="/fridge" exact style={link} activeStyle = {{background:'darkblue'}}>Fridge</NavLink>
-      <NavLink to="/recipes" exact style={link} activeStyle = {{background:'darkblue'}}>Recipes</NavLink>
-      <NavLink to="/cart" exact style={link} activeStyle = {{background:'darkblue'}}>Cart</NavLink>
-  </div>
+      <NavLink to="/fridge" exact style={link} activeStyle = {{background:'darkblue'}}>
+        <button type="button">
+          <span>Fridge</span>
+        </button>
+      </NavLink>
+      <NavLink to="/recipes" exact style={link} activeStyle = {{background:'darkblue'}}>
+        <button type="button">
+          <span>Recipes</span>
+        </button>
+      </NavLink>
+      <NavLink to="/cart" exact style={link} activeStyle = {{background:'darkblue'}}>
+        <button type="button">
+          <span>Cart</span>
+        </button>
+      </NavLink>
+    </div>
   );
 };
 
