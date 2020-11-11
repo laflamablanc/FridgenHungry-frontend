@@ -40,9 +40,13 @@ class Fridge extends React.Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:4000/fridge_ingredients'+this.props.fridge.id)
+    fetch('http://localhost:4000/fridges/'+this.props.fridge.id)
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(fridgeObj => {
+      this.setState({
+        fridgeIngredients: fridgeObj.ingredients
+      })
+    })
   }
 
 }

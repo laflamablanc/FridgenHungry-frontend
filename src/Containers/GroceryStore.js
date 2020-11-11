@@ -27,12 +27,12 @@ class GroceryStore extends React.Component {
 
       fetch('http://localhost:4000/fridge_ingredients', options)
       .then(response => response.json())
-      .then(data => {
+      .then(data => {console.log(data)
         this.setState({
           fridgeIngredients: [...this.state.fridgeIngredients, ingredientObj]
         })
-        this.props.addFridgeIngredient(ingredientObj)
       })
+      // this.props.addFridgeIngredient(ingredientObj) this was breaking our code
     }
 
   removeIngredient = (ingredientObj) => {
