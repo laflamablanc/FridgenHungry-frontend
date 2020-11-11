@@ -3,6 +3,7 @@ import IngredientsContainer from '../Containers/IngredientsContainer'
 import Cart from './Cart'
 import Grid from '@material-ui/core/Grid'
 import Nutrition from '../Components/Nutrition'
+import { useDrag, useDrop } from "react-dnd";
 
 class GroceryStore extends React.Component {
 
@@ -38,9 +39,7 @@ class GroceryStore extends React.Component {
     }
 
   removeIngredient = (ingredientObj) => {
-    console.log("Join", this.state.join)
     let deletedItem = this.state.join.find(x => x.ingredient_id === ingredientObj.id)
-    console.log("Deleted Item", deletedItem)
     let newFridge = this.state.fridgeIngredients.filter(ingredient => ingredient.id !== ingredientObj.id)
     this.setState({
       fridgeIngredients: newFridge

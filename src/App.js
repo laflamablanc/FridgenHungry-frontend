@@ -5,7 +5,8 @@ import Login from './Components/Login'
 import RecipesContainer from './Containers/RecipesContainer'
 import Fridge from './Containers/Fridge'
 import NavBar from './Components/NavBar'
-
+import { DndProvider } from "react-dnd"
+import { HTML5Backend } from "react-dnd-html5-backend"
 import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 
 class App extends React.Component {
@@ -61,9 +62,11 @@ class App extends React.Component {
           <Route exact path="/">
             {this.state.isLoggedIn ? <Redirect to='/cart'/> : <Login loggedIn = {this.loggedIn}/> }
           </Route>
-          <Route exact path="/cart" render={() => <GroceryStore fridgeId = {this.state.fridge.id} fridge={this.state.fridge} addFridgeIngredient={this.addFridgeIngredient} removeFridgeIngredient={this.removeFridgeIngredient}/>} />
-          <Route exact path="/recipes" render={() => <RecipesContainer fridge = {this.state.fridge}/>}/>
-          <Route exact path="/fridge" render={() => <Fridge fridge = {this.state.fridge}/>}/>
+          <DndProvider backend={HTML5Backend}>
+            <Route exact path="/cart" render={() => <GroceryStore fridgeId = {this.state.fridge.id} fridge={this.state.fridge} addFridgeIngredient={this.addFridgeIngredient} removeFridgeIngredient={this.removeFridgeIngredient}/>} />
+            <Route exact path="/recipes" render={() => <RecipesContainer fridge = {this.state.fridge}/>}/>
+            <Route exact path="/fridge" render={() => <Fridge fridge = {this.state.fridge}/>}/>
+          </DndProvider>
         </Router>
       </div>
     )

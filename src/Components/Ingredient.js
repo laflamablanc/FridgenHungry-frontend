@@ -1,38 +1,47 @@
 import React from 'react'
+import {ItemTypes} from '../Utilities/items'
 import {Card, CardActions, CardContent} from '@material-ui/core'
+import { useDrag } from 'react-dnd'
 
-class Ingredient extends React.Component {
 
-  clickHandler = (e) => {
-    if (this.props.fridge === undefined){
-      this.props.ingredientClickHandler(this.props.ingredient)
+const Ingredient = (props) => {
+
+    const [collectedProps, drag] = useDrag({
+      item: {
+        type: ItemTypes.CARD
+      }
+    })
+
+
+  const clickHandler = (e) => {
+    if (props.fridge === undefined){
+      props.ingredientClickHandler(props.ingredient)
     }
-    else if (this.props.fridge !== undefined){
-      this.props.removeIngredient(this.props.ingredient)
+    else if (props.fridge !== undefined){
+      props.removeIngredient(props.ingredient)
     }
 
   }
 
-  dragHandler = (e) => {
+  const dragHandler = (e) => {
     // if (e.target.name === "ingredient-card") {
       console.log(e.target.name)
     // }
   }
 
 
-  removeHandler = () => {
-    console.log(this.props)
-    this.props.removeIngredient(this.props.ingredient)
+  const removeHandler = () => {
+    console.log(props)
+    props.removeIngredient(props.ingredient)
   }
 
-  render(){
     return(
       <div>
-        <Card className = "ingredient-card" draggable onClick={this.clickHandler} onDrag = {this.dragHandler}>
-        <h2>{this.props.ingredient.name}</h2>
+        <Card className = "ingredient-card" draggable onClick={clickHandler} onDrag = {dragHandler}>
+        <h2>{props.ingredient.name}</h2>
         <img
-          src={this.props.ingredient.image}
-          alt={this.props.ingredient.name}
+          src={props.ingredient.image}
+          alt={props.ingredient.name}
           height = '75'
           className = "ingredient-image"
           />
@@ -40,7 +49,6 @@ class Ingredient extends React.Component {
       </div>
       // <button onClick={this.clickHandler}> {this.props.fridge !== undefined ? "Remove" : "Add"}</button>
     )
-  }
 
 }
 

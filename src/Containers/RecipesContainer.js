@@ -88,7 +88,6 @@ class RecipesContainer extends React.Component {
       })
     })
   }
-
 }
 
 
