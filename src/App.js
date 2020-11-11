@@ -59,7 +59,9 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <NavBar/>
+          {this.state.isLoggedIn &&  (
+            <NavBar/>
+          )}
           <Route exact path="/">
             {this.state.isLoggedIn ? <Redirect to='/cart'/> : <Login loggedIn = {this.loggedIn}/> }
           </Route>
