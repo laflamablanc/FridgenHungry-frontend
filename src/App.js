@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react'
 import GroceryStore from './Containers/GroceryStore'
@@ -15,12 +14,17 @@ class App extends React.Component {
     fridge: {}
   }
 
-  addFridgeIngredient = (ing) => {
+  addFridgeIngredient = (ingredientObj) => {
     this.setState({
       fridge: {
-        ingredients: [...this.state.fridge.ingredients, ing]
+        ingredients: [...this.state.fridge.ingredients, ingredientObj]
       }
     })
+  }
+
+  removeFridgeIngredient = (ingredientObj) => {
+    let filteredArray = this.state.fridge.ingredients.filter(ingredient => ingredient.id !== ingredientObj.id)
+    console.log("Filtered Array", filteredArray)
   }
 
   loggedIn = (username, password) => {
@@ -38,10 +42,9 @@ class App extends React.Component {
       )
     }
 
-    fetch('http://localhost:4000/login', fridgeOptions)
+    fetch('http://localhost:4000/fridges', fridgeOptions)
     .then(response => response.json())
     .then(fridgeObj => {
-      console.log(fridgeObj)
       this.setState({
         isLoggedIn :true,
         fridge: fridgeObj
@@ -58,7 +61,7 @@ class App extends React.Component {
           <Route exact path="/">
             {this.state.isLoggedIn ? <Redirect to='/cart'/> : <Login loggedIn = {this.loggedIn}/> }
           </Route>
-          <Route exact path="/cart" render={() => <GroceryStore fridgeId = {this.state.fridge.id} fridge={this.state.fridge} addFridgeIngredient={this.addFridgeIngredient}/>} />
+          <Route exact path="/cart" render={() => <GroceryStore fridgeId = {this.state.fridge.id} fridge={this.state.fridge} addFridgeIngredient={this.addFridgeIngredient} removeFridgeIngredient={this.removeFridgeIngredient}/>} />
           <Route exact path="/recipes" render={() => <RecipesContainer fridge = {this.state.fridge}/>}/>
           <Route exact path="/fridge" render={() => <Fridge fridge = {this.state.fridge}/>}/>
         </Router>

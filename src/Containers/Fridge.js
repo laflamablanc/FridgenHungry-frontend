@@ -5,13 +5,14 @@ import { Link } from 'react-router-dom';
 
 class Fridge extends React.Component {
 
-  getFridgeIngredients = () => {
-    fetch('http://localhost:4000/fridge_ingredients')
-    .then(response => response.json())
-    .then(data => console.log(data))
+  state = {
+    fridgeIngredients: []
   }
+
+
+
   displayFood = () => {
-    return this.props.fridge.ingredients.map(ingredient => {
+    return this.state.fridgeIngredients.map(ingredient => {
       return (
         <Grid item xs = {3}>
           <Ingredient
@@ -26,7 +27,6 @@ class Fridge extends React.Component {
   }
 
   render(){
-    this.getFridgeIngredients()
     console.log("My Fridge", this.props.fridge)
     return(
       <div className = "fridge">
@@ -36,12 +36,18 @@ class Fridge extends React.Component {
         </Grid>
         <Link to={'/recipes'}> See Recipes </Link>
       </div>
-
     )
   }
 
+  componentDidMount(){
+    fetch('http://localhost:4000/fridge_ingredients'+this.props.fridge.id)
+    .then(response => response.json())
+    .then(data => console.log(data))
+  }
 
 }
+
+
 
 
 export default Fridge

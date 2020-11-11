@@ -7,8 +7,7 @@ import Nutrition from '../Components/Nutrition'
 class GroceryStore extends React.Component {
 
   state = {
-    fridgeIngredients: this.props.fridge.ingredients,
-    fridgeId: this.props.fridgeId
+    fridgeIngredients: this.props.fridge.ingredients? this.props.fridge.ingredients : [],
   }
 
   ingredientClickHandler = (ingredientObj) => {
@@ -20,7 +19,7 @@ class GroceryStore extends React.Component {
         },
         body: JSON.stringify(
           {
-            fridge_id: this.state.fridgeId,
+            fridge_id: this.props.fridgeId,
             ingredient_id: ingredientObj.id
           }
         )
@@ -37,13 +36,14 @@ class GroceryStore extends React.Component {
     }
 
   removeIngredient = (ingredientObj) => {
-    let newFridge = this.state.fridge.filter(ingredient => ingredient.id !== ingredientObj.id)
+    let newFridge = this.state.fridgeIngredients.filter(ingredient => ingredient.id !== ingredientObj.id)
     this.setState({
-      fridge: newFridge
+      fridgeIngredients: newFridge
     })
   }
 
   render(){
+    console.log("Fridge Ingredients", this.state.fridgeIngredients)
     return(
       <div>
         <Grid item xs = {12} container spacing = {2}>
