@@ -36,9 +36,9 @@ const Cart = (props) => {
     <div>
       <h1>Cart</h1>
       <div className = "cart" style={{
-          backgroundImage: "url(" + "https://i.imgur.com/0IStklx.png" + ")",
+          // backgroundImage: "url(" + "https://i.imgur.com/0IStklx.png" + ")",
           backgroundPosition: 'center',
-          backgroundSize: "100% 100%",
+          backgroundSize: "130% 120%",
           backgroundRepeat: 'no-repeat',
           border: isOver? "5px solid red" : "5px solid blue"
         }}
