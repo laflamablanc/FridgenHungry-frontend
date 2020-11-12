@@ -46,6 +46,7 @@ class RecipesContainer extends React.Component {
 
   renderRecipes = () => {
     let recipesArray = this.returnArray()
+    console.log(recipesArray)
     if (recipesArray){
       return recipesArray.map(recipe => {
         return (

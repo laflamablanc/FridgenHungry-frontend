@@ -27,8 +27,14 @@ class RecipeCard extends React.Component {
     console.log("Recipe Card Props", this.props.recipe)
     return (
       <div>
-        <Card onClick={this.onShow}>
-        {this.props.recipe.name}
+        <Card className={'recipe-card'}onClick={this.onShow}>
+          <h2>{this.props.recipe.name}</h2>
+          <img
+            src={this.props.recipe.image}
+            alt={this.props.recipe.name}
+            height = '75'
+            className = "ingredient-image"
+            />
         </Card>
         <Recipe show={this.state.showRecipeModal} onHide={this.onHide} recipeID={this.props.recipe.id}/>
       </div>

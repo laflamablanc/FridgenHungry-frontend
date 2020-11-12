@@ -13,18 +13,18 @@ const link = {
 const NavBar = () => {
   return (
     <div className = "navbar">
-      <NavLink to="/fridge" exact style={link} activeStyle = {{background:'darkblue'}}>
-        <button type="button">
+      <NavLink className="navbar" to="/fridge" exact style={link} activeStyle = {{background:'darkblue'}}>
+        <button className="navbar-button" type="button">
           <span>Fridge</span>
         </button>
       </NavLink>
-      <NavLink to="/recipes" exact style={link} activeStyle = {{background:'darkblue'}}>
-        <button type="button">
+      <NavLink className="navbar" to="/recipes" exact style={link} activeStyle = {{background:'darkblue'}}>
+        <button className="navbar-button" type="button">
           <span>Recipes</span>
         </button>
       </NavLink>
-      <NavLink to="/cart" exact style={link} activeStyle = {{background:'darkblue'}}>
-        <button type="button">
+      <NavLink className="navbar" to="/cart" exact style={link} activeStyle = {{background:'darkblue'}}>
+        <button className="navbar-button" type="button">
           <span>Cart</span>
         </button>
       </NavLink>
