@@ -32,27 +32,23 @@ const Cart = (props) => {
   }
 
 
-    return(
+  return(
+    <div>
+      <h1>Cart</h1>
       <div className = "cart" style={{
-          backgroundImage: "url(" + "https://i.imgur.com/0IStklx.png" + ")",
-          backgroundPosition: 'center',
-          backgroundSize: "100% 100%",
-          backgroundRepeat: 'no-repeat',
-          border: isOver? "5px solid red" : "5px solid blue"
-        }}
-        ref={drop}
-        >
-        <h1>Cart</h1>
+        backgroundPosition: 'center',
+        backgroundSize: "130% 120%",
+        backgroundRepeat: 'no-repeat',
+        border: isOver? "5px solid red" : "5px solid blue"
+      }}
+      ref={drop}
+      >
         <Grid container spacing={1}>
           {displayFood()}
         </Grid>
-        <Link to={'/recipes'}>
-          <button type="button">
-            <span>Login</span>
-          </button>
-        </Link>
       </div>
-    )
+    </div>
+  )
 }
 
 export default Cart

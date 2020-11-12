@@ -63,8 +63,8 @@ class IngredientsContainer extends React.Component {
         <div>
           <h1>Ingredients</h1>
           <Category filterFood = {this.filterFood}/>
-          <div>
-            <Grid container spacing={1}>
+          <div className = "ingredients-container">
+            <Grid container spacing={5}>
               {this.renderIngredients()}
             </Grid>
           </div>
