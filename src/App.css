@@ -129,3 +129,24 @@
    text-align: center;
    align-content: center;
  }
+
+ .recipe-card {
+   background-color: wheat;
+ }
+
+ .navbar {
+   background-color: rgb(238, 44, 48) !important;
+ }
+
+ .navbar-button {
+  background-color: rgb(238, 44, 48); /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 5px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+ }
+
+
