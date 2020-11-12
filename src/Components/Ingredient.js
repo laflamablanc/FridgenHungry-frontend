@@ -6,6 +6,8 @@ import Nutrition from '../Components/Nutrition'
 const NUTRITION_API_URL = "https://api.edamam.com/api/nutrition-details";
 
 const Ingredient = (props) => {
+  console.log("Ingredient Props", props)
+
 
     const [{isDragging}, drag] = useDrag({
       item: {
@@ -22,10 +24,12 @@ const Ingredient = (props) => {
   const clickHandler = (e) => {
     if (props.fridge === undefined){
       props.ingredientClickHandler(props.ingredient)
-      getNutritionInfo(props.ingredient.name)
     }
-    else if (props.fridge !== undefined){
+    else if (props.fridge === "cart"){
       props.removeIngredient(props.ingredient)
+    }
+    else if (props.fridge === "fridge"){
+      getNutritionInfo(props.ingredient.name)
     }
   }
 
@@ -62,7 +66,6 @@ const Ingredient = (props) => {
   const [nutritionInfo, setNutritionInfo] = React.useState(null);
 
   const removeHandler = () => {
-    console.log(props)
     props.removeIngredient(props.ingredient)
   }
     return(

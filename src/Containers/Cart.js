@@ -24,7 +24,7 @@ const Cart = (props) => {
             key = {ingredient.id}
             ingredient = {ingredient}
             removeIngredient = {props.removeIngredient}
-            fridge = ""
+            fridge = "cart"
           />
         </Grid>
       )
@@ -39,7 +39,7 @@ const Cart = (props) => {
         backgroundPosition: 'center',
         backgroundSize: "130% 120%",
         backgroundRepeat: 'no-repeat',
-        border: isOver? "5px solid red" : "5px solid blue"
+        border: isOver? "5px solid blue" : "5px solid red"
       }}
       ref={drop}
       >

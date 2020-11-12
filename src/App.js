@@ -63,7 +63,7 @@ class App extends React.Component {
             <NavBar/>
           )}
           <Route exact path="/">
-            {this.state.isLoggedIn ? <Redirect to='/cart'/> : <Login loggedIn = {this.loggedIn}/> }
+            {this.state.isLoggedIn ? <Redirect to='/fridge'/> : <Login loggedIn = {this.loggedIn}/> }
           </Route>
           <DndProvider backend={HTML5Backend}>
             <Route exact path="/cart" render={() => <GroceryStore fridgeId = {this.state.fridge.id} fridge={this.state.fridge} addFridgeIngredient={this.addFridgeIngredient} removeFridgeIngredient={this.removeFridgeIngredient}/>} />
