@@ -31,9 +31,17 @@ class Fridge extends React.Component {
     return(
       <div className = "fridge">
         <h1>Fridge</h1>
-        <Grid container spacing={1}>
-          {this.displayFood()}
-        </Grid>
+        <div className = "fridge-container">
+          <Grid item xs = {12} container spacing = {2}>
+            <Grid item xs = {6}>
+            </Grid>
+            <Grid item xs = {6}>
+              <Grid container spacing={5}>
+                {this.displayFood()}
+              </Grid>
+            </Grid>
+          </Grid>
+        </div>
         <Link to={'/recipes'}> See Recipes </Link>
       </div>
     )
