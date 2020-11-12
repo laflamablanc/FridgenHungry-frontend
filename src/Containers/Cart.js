@@ -48,14 +48,15 @@ const Cart = (props) => {
         <Grid container spacing={1}>
           {displayFood()}
         </Grid>
-        <Link to={'/recipes'}>
-          <button type="button">
-            <span>See Recipes</span>
-          </button>
-        </Link>
       </div>
     </div>
   )
 }
+
+// <Link to={'/recipes'}>
+//   <button type="button">
+//     <span>See Recipes</span>
+//   </button>
+// </Link>
 
 export default Cart

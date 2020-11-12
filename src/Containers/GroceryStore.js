@@ -42,7 +42,7 @@ class GroceryStore extends React.Component {
   }
 
   ingredientClickHandler = (ingredientObj) => {
-    console.log("Show Nutritional Info")
+    // console.log("Show Nutritional Info")
       // let options = {
       //   method: "POST" ,
       //   headers:{
