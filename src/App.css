@@ -49,6 +49,13 @@ body, html {
   padding: 50px;
 }
 
+.fridge{
+  background-image: url("https://www.stockillustrations.com/Image.aspx?src=medres&name=WIRY0145.jpg&sz=572&fitw=y");
+  min-height: 1000px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
