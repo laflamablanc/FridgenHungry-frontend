@@ -1,3 +1,7 @@
+body, html {
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }
@@ -56,7 +60,12 @@
 
 .login-page {
   background-image: url('https://wallpaperaccess.com/full/271679.jpg');
-  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 1150px;
+  opacity: 0.99;
 }
 
 .page-header-text {
@@ -69,32 +78,48 @@
 .login-page-form {
   align-content: center;
   display: block;
-  text-align: center
+  text-align: center;
+  background: #D3D3D3;
+  border-radius: 15px ;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 1%;
 }
 
 .login-page-header-text-sm{
   font-size: 200%;
+  text-align: center;
+  padding-top:  30px;
 }
 
 .login-page-header-text-lg{
   font-size: 500%;
-  padding-top: 100px;
+  padding-top: 150px;
 }
 
+.login-page-header-text{
+  text-align: left;
+}
+
+.logo-image{
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 15%;
+}
 
 .login-page-submit {
   display: inline-block;
   border-radius: 4px;
   background-color: #0b710b;
-  border: none;
+  border: black solid px;
   color: #FFFFFF;
   text-align: center;
-  font-size: 28px;
-  padding: 10px;
+  font-size: 25px;
+  padding: 8px;
   width: 125px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
+  margin: 15px;
 }
 
 .recipe-page{

@@ -1,4 +1,5 @@
 import React from 'react'
+import Form from 'react-bootstrap/Form'
 
 class Login extends React.Component {
 
@@ -21,9 +22,9 @@ class Login extends React.Component {
   render(){
     return(
       <div className="login-page">
-        <h2 className="page-header-text login-page-header-text-lg"> Welcome to Fridg'n Hungry! </h2>
-        <h5 className="page-header-text login-page-header-text-sm"> Please Login to Continue </h5>
+        <img className= "logo-image" src = '/Images/FridgnHungry.png'/><br/>
         <form className="login-page-form" onSubmit = {this.submitHandler}>
+          <h5 className="page-header-text login-page-header-text-sm"> Please Login to Continue </h5>
             <label className="login-page-header-text" for="username">Username:</label><br/>
             <input type="text" id="username" name="username" onChange = {this.handleChange} value={this.state.username}/><br/>
             <label className="login-page-header-text" for="password">Password:</label><br/>
@@ -34,6 +35,7 @@ class Login extends React.Component {
     )
   }
 }
+
 
 
 
